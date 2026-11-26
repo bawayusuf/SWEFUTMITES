@@ -1,0 +1,43 @@
+:root{--bg:#eef2f7;--surface:#fff;--ink:#14213d;--muted:#55627a;--line:#cfd8e6;--accent:#2f4bff;--accent-ink:#fff;--hl:#b8f2d0;--hl-ink:#0d3b24;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1626;--surface:#17213a;--ink:#e8edf8;--muted:#9aa8c4;--line:#2a3757;--accent:#7b8dff;--accent-ink:#0f1626;--hl:#1d5a3e;--hl-ink:#d6fbe6;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1626;--surface:#17213a;--ink:#e8edf8;--muted:#9aa8c4;--line:#2a3757;--accent:#7b8dff;--accent-ink:#0f1626;--hl:#1d5a3e;--hl-ink:#d6fbe6;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "IBM Plex Sans",system-ui,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.1;margin:0}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px}
+.logo{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:20px;text-decoration:none;color:inherit;white-space:nowrap}
+.links{display:flex;gap:18px;font-size:15px;overflow-x:auto}
+.links a{text-decoration:none;color:var(--muted);white-space:nowrap}
+.hero{padding:64px 0 44px}
+.hero h1{font-size:clamp(38px,8vw,70px);font-weight:800;letter-spacing:-.03em;max-width:12em}
+.hero p{max-width:34em;color:var(--muted);font-size:19px;margin:18px 0 26px}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);padding:11px 22px;border-radius:8px;font:inherit;font-weight:500;text-decoration:none;border:0;cursor:pointer}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+section{padding:52px 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(26px,5vw,38px);letter-spacing:-.02em;margin-bottom:8px}
+.sub{color:var(--muted);max-width:36em;margin:0 0 24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px}
+.card h3{font-size:19px;margin-bottom:6px}.card p{margin:0;color:var(--muted);font-size:15px}
+.tag{display:inline-block;background:var(--hl);color:var(--hl-ink);font-size:13px;padding:2px 10px;border-radius:999px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.tab{background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:7px 15px;font:inherit;font-size:15px;cursor:pointer}
+.tab[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+form{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:grid;gap:10px;margin-bottom:20px}
+select,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px;width:100%}
+textarea{min-height:84px;resize:vertical}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.notice{background:var(--hl);color:var(--hl-ink);padding:10px 14px;border-radius:8px;margin-bottom:16px;font-size:15px}
+.post{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:12px}
+.post p{margin:6px 0 10px;white-space:pre-wrap;overflow-wrap:anywhere}
+.meta{color:var(--muted);font-size:14px}
+.mini{background:none;border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:4px 12px;font:inherit;font-size:14px;cursor:pointer}
+.mini[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+ol.path{padding-left:22px;max-width:640px}ol.path li{margin:10px 0}
+footer{padding:32px 0 48px;border-top:1px solid var(--line);color:var(--muted);font-size:15px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}

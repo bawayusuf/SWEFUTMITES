@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Level 100 SWE – Grow together</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2f7;--surface:#fff;--ink:#14213d;--muted:#55627a;--line:#cfd8e6;--accent:#2f4bff;--accent-ink:#fff;--hl:#b8f2d0;--hl-ink:#0d3b24;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1626;--surface:#17213a;--ink:#e8edf8;--muted:#9aa8c4;--line:#2a3757;--accent:#7b8dff;--accent-ink:#0f1626;--hl:#1d5a3e;--hl-ink:#d6fbe6;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1626;--surface:#17213a;--ink:#e8edf8;--muted:#9aa8c4;--line:#2a3757;--accent:#7b8dff;--accent-ink:#0f1626;--hl:#1d5a3e;--hl-ink:#d6fbe6;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "IBM Plex Sans",system-ui,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.1;margin:0}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px}
+.logo{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:20px;text-decoration:none;color:inherit;white-space:nowrap}
+.links{display:flex;gap:18px;font-size:15px;overflow-x:auto}
+.links a{text-decoration:none;color:var(--muted);white-space:nowrap}
+.hero{padding:64px 0 44px}
+.hero h1{font-size:clamp(38px,8vw,70px);font-weight:800;letter-spacing:-.03em;max-width:12em}
+.hero p{max-width:34em;color:var(--muted);font-size:19px;margin:18px 0 26px}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);padding:11px 22px;border-radius:8px;font:inherit;font-weight:500;text-decoration:none;border:0;cursor:pointer}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+section{padding:52px 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(26px,5vw,38px);letter-spacing:-.02em;margin-bottom:8px}
+.sub{color:var(--muted);max-width:36em;margin:0 0 24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px}
+.card h3{font-size:19px;margin-bottom:6px}.card p{margin:0;color:var(--muted);font-size:15px}
+.tag{display:inline-block;background:var(--hl);color:var(--hl-ink);font-size:13px;padding:2px 10px;border-radius:999px;margin-bottom:8px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.tab{background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:7px 15px;font:inherit;font-size:15px;cursor:pointer}
+.tab[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+form{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:grid;gap:10px;margin-bottom:20px}
+select,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px;width:100%}
+textarea{min-height:84px;resize:vertical}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.notice{background:var(--hl);color:var(--hl-ink);padding:10px 14px;border-radius:8px;margin-bottom:16px;font-size:15px}
+.post{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:12px}
+.post p{margin:6px 0 10px;white-space:pre-wrap;overflow-wrap:anywhere}
+.meta{color:var(--muted);font-size:14px}
+.mini{background:none;border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:4px 12px;font:inherit;font-size:14px;cursor:pointer}
+.mini[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+ol.path{padding-left:22px;max-width:640px}ol.path li{margin:10px 0}
+footer{padding:32px 0 48px;border-top:1px solid var(--line);color:var(--muted);font-size:15px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><a class="logo" href="#top">SWE 100 Hub</a>
+<div class="links"><a href="#board">Board</a><a href="#challenge">Weekly challenge</a><a href="#path">Learning path</a><a href="#habits">Habits</a></div></div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+<h1>We started together. Let’s grow together.</h1>
+<p>A space for 100-level software engineering students to ask questions, share what we learn, and find people to study with.</p>
+<a class="btn" href="#board">Join the board</a>
+</div></header>
+
+<section id="board"><div class="wrap">
+<h2>Class board</h2>
+<p class="sub">Ask a question, share a tip or a resource, or look for a study group. Be kind and be specific.</p>
+<div id="notice" class="notice" hidden></div>
+<form id="form">
+<div class="row"><label for="type">Post type</label>
+<select id="type" style="width:auto"><option>Question</option><option>Tip</option><option>Resource</option><option>Study group</option></select></div>
+<label for="text" class="meta">What do you want to share?</label>
+<textarea id="text" maxlength="800" required placeholder="Example: I’m stuck on loops in Python. Can someone explain with a small example?"></textarea>
+<div class="row"><button class="btn" id="send" type="submit">Post to the board</button><span class="meta" id="status" role="status"></span></div>
+</form>
+<div class="tabs" id="filters"></div>
+<div id="posts"></div>
+</div></section>
+
+<section id="challenge"><div class="wrap">
+<h2>This week’s challenge</h2>
+<p class="sub">Try it alone first, then post your solution or your question on the board.</p>
+<div class="card"><span class="tag">30 minutes</span><h3>Number guessing game</h3>
+<p>The program picks a number from 1 to 100. The player keeps guessing, and the program says “higher” or “lower” until they win. Then count how many guesses it took. Stretch goal: limit the player to 7 guesses.</p></div>
+</div></section>
+
+<section id="path"><div class="wrap">
+<h2>A simple path for first year</h2>
+<p class="sub">Your lecturers set the syllabus. This is what to practise on the side.</p>
+<ol class="path">
+<li><strong>Learn one language well.</strong> Python is friendly to start with. Write a little code every day.</li>
+<li><strong>Understand how computers work.</strong> Binary, memory, and what happens when code runs.</li>
+<li><strong>Get comfortable with logic and maths.</strong> It helps with problem solving later.</li>
+<li><strong>Learn Git and GitHub.</strong> Put every small project online.</li>
+<li><strong>Build tiny projects.</strong> A calculator, a quiz, a to-do list. Finish them.</li>
+</ol></div></section>
+
+<section id="habits"><div class="wrap">
+<h2>Habits that help us grow</h2>
+<div class="grid">
+<div class="card"><h3>Code a little every day</h3><p>Thirty minutes daily beats six hours once a week.</p></div>
+<div class="card"><h3>Explain it to someone</h3><p>If you can teach a classmate, you understand it.</p></div>
+<div class="card"><h3>Ask early</h3><p>Stuck for more than 30 minutes? Post on the board.</p></div>
+<div class="card"><h3>Share what you find</h3><p>A good video or article helps the whole class.</p></div>
+</div></div></section>
+
+<footer><div class="wrap">Built by level 100 software engineering students, for level 100 software engineering students.</div></footer>
+
+<script>
+var $=function(i){return document.getElementById(i)};
+var db=null,uid=null,uapi=null,posts=[],filter="All",names={};
+var types=["All","Question","Tip","Resource","Study group"];
+function notice(t){var n=$("notice");n.textContent=t;n.hidden=!t}
+var fb=$("filters");
+types.forEach(function(t){var b=document.createElement("button");b.className="tab";b.textContent=t;b.setAttribute("aria-pressed",t==="All");
+ b.onclick=function(){filter=t;[].forEach.call(fb.children,function(x){x.setAttribute("aria-pressed",x===b)});render()};fb.appendChild(b)});
+function ago(ts){var m=Math.floor((Date.now()-ts)/60000);if(m<1)return"just now";if(m<60)return m+" min ago";var h=Math.floor(m/60);if(h<24)return h+" h ago";return Math.floor(h/24)+" d ago"}
+function render(){
+ var box=$("posts");box.textContent="";
+ var list=posts.filter(function(p){return filter==="All"||p.type===filter});
+ if(!list.length){var e=document.createElement("p");e.className="meta";e.textContent=db?"Nothing here yet. Be the first to post.":"Posts will appear here once the board connects.";box.appendChild(e);return}
+ list.forEach(function(p){
+  var d=document.createElement("div");d.className="post";
+  var tg=document.createElement("span");tg.className="tag";tg.textContent=p.type;
+  var tx=document.createElement("p");tx.textContent=p.text;
+  var m=document.createElement("div");m.className="row meta";
+  var who=document.createElement("span");who.textContent=(names[p.author]||"A classmate")+" · "+ago(p.ts);
+  var likes=Array.isArray(p.likes)?p.likes:[];
+  var h=document.createElement("button");h.className="mini";h.textContent="Helpful · "+likes.length;
+  h.setAttribute("aria-pressed",likes.indexOf(uid)>-1);
+  h.onclick=function(){if(!db||!uid)return;var n=likes.indexOf(uid)>-1?likes.filter(function(x){return x!==uid}):likes.concat(uid);
+   db.collection("posts").doc(p.id).update({likes:n}).catch(function(){notice("Could not save that. Try again.")})};
+  m.appendChild(who);m.appendChild(h);
+  if(uid&&p.author===uid){var x=document.createElement("button");x.className="mini";x.textContent="Delete";
+   x.onclick=function(){db.collection("posts").doc(p.id).delete().catch(function(){notice("Could not delete that post.")})};m.appendChild(x)}
+  d.appendChild(tg);d.appendChild(tx);d.appendChild(m);box.appendChild(d)});
+}
+function resolveNames(){
+ var ids=[];posts.forEach(function(p){if(p.author&&ids.indexOf(p.author)<0&&!names[p.author])ids.push(p.author)});
+ if(!ids.length||!uapi)return;
+ uapi.profiles(ids).then(function(ps){ids.forEach(function(i){names[i]=(ps[i]&&ps[i].name)||""});render()}).catch(function(){});
+}
+function offline(){ $("send").disabled=true;$("text").disabled=true;
+ notice("The shared board is off in this view. Open the link while signed in to Claude and ask the page owner for access to post.");render()}
+async function init(){
+ var timer=setTimeout(function(){if(!db)offline()},10000);
+ try{
+  if(!window.claude){offline();return}
+  db=await window.claude.use("db");uapi=await window.claude.use("user");
+  clearTimeout(timer);
+  if(!db){offline();return}
+  try{uid=uapi?await uapi.id():null}catch(e){}
+  db.collection("posts").orderBy("ts","desc").limit(60).onSnapshot(function(s){
+   posts=s.docs.map(function(d){var o=d.data()||{};o.id=d.id;return o});render();resolveNames()},
+   function(){notice("Could not load posts. Check your connection and reopen the page.")});
+ }catch(e){offline()}
+}
+$("form").addEventListener("submit",function(ev){
+ ev.preventDefault();var t=$("text").value.trim();if(!t||!db)return;
+ $("send").disabled=true;
+ db.collection("posts").add({type:$("type").value,text:t,author:uid,ts:Date.now(),likes:[]})
+  .then(function(){$("text").value="";$("status").textContent="Posted."})
+  .catch(function(){$("status").textContent="Could not post. You may only have view access."})
+  .then(function(){$("send").disabled=false;setTimeout(function(){$("status").textContent=""},3000)});
+});
+render();init();
+</script>
+</body>
+</html>
